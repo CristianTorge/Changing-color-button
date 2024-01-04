@@ -14,26 +14,32 @@
     #button {
       font-size: 24px;
       padding: 15px 30px;
+      background-color: red;
     }
   </style>
 </head>
 <body>
 
-<button id="button" onclick="button()">Button</button>
+<button id="button">Button</button>
 
 <script>
-  let culori = ['red', 'yellow', 'green'];
-  let indexCuloare = 1;
+  let colors = ['red', 'yellow', 'green'];
+  let indexColor = 0;
+  const button = document.getElementById('button');
 
   window.onload = function() {
-    const buton = document.getElementById('button');
-    buton.style.backgroundColor = 'red';
+    setInterval(changeColor, 10000);
+    button.addEventListener('click', changeColorOnClick);
   };
 
-  function button() {
-    const buton = document.getElementById('button');
-    buton.style.backgroundColor = culori[indexCuloare];
-    indexCuloare = (indexCuloare + 1) % culori.length;
+  function changeColor() {
+    indexColor = (indexColor + 1) % colors.length;
+    button.style.backgroundColor = colors[indexColor];
+  }
+
+  function changeColorOnClick() {
+    indexColor = (indexColor + 1) % colors.length;
+    button.style.backgroundColor = colors[indexColor];
   }
 </script>
 
