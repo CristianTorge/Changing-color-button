@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Redlight Button</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    #button {
+      font-size: 24px;
+      padding: 15px 30px;
+    }
+  </style>
+</head>
+<body>
+
+<button id="button" onclick="button()">Button</button>
+
+<script>
+  let culori = ['red', 'yellow', 'green'];
+  let indexCuloare = 1;
+
+  window.onload = function() {
+    const buton = document.getElementById('button');
+    buton.style.backgroundColor = 'red';
+  };
+
+  function button() {
+    const buton = document.getElementById('button');
+    buton.style.backgroundColor = culori[indexCuloare];
+    indexCuloare = (indexCuloare + 1) % culori.length;
+  }
+</script>
+
+</body>
+</html>
